@@ -25,7 +25,6 @@ struct PCB {
         int process_priority;
     };
 
-
 struct MEMORY_BLOCK {
         int start_address;
         int end_address;
