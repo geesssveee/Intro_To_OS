@@ -96,10 +96,11 @@ struct PCB handle_process_arrival_srtp(struct PCB ready_queue[QUEUEMAX], int *qu
 }
 struct PCB handle_process_completion_srtp(struct PCB ready_queue[QUEUEMAX], int *queue_cnt, int timestamp){
     int minimum;
-    int i,pointer;
+    int i=0;
+    int pointer=0;
     struct PCB Copy;
     
-    if(ready_queue[0].process_id==0)
+    if(*queue_cnt==0)
     return NULLPCB;
     else{
         minimum=ready_queue[0].remaining_bursttime;
@@ -135,10 +136,11 @@ struct PCB handle_process_arrival_rr(struct PCB ready_queue[QUEUEMAX], int *queu
     }
 }
 struct PCB handle_process_completion_rr(struct PCB ready_queue[QUEUEMAX], int *queue_cnt, int timestamp, int time_quantum){
-    int minimum;
-    int i,pointer;
+    int minimum=0;
+    int i=0;
+    int pointer=0;
     struct PCB Copy;
-    if(ready_queue[0].process_id==0){
+    if(*queue_cnt==0){
     return NULLPCB;
     }
     else{
